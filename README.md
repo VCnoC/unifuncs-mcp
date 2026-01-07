@@ -14,17 +14,24 @@
 
 ## 快速开始
 
-### 1. 安装依赖
+### 1. 克隆仓库
+
+```bash
+git clone https://github.com/VCnoC/unifuncs-mcp.git
+cd unifuncs-mcp
+```
+
+### 2. 安装依赖
 
 ```bash
 pip install mcp httpx
 ```
 
-### 2. 获取 API Key
+### 3. 获取 API Key
 
 前往 [UniFuncs 账户页面](https://unifuncs.com/account) 获取您的 API Key。
 
-### 3. 配置 Claude Code
+### 4. 配置 Claude Code
 
 编辑 `.mcp.json`，填入您的 API Key：
 
@@ -43,7 +50,7 @@ pip install mcp httpx
 }
 ```
 
-### 4. 重启 Claude Code 并验证
+### 5. 重启 Claude Code 并验证
 
 ```
 /mcp
