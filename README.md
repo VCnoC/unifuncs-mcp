@@ -10,7 +10,6 @@
 | **deep_research** | 深度研究 | U2 / U1 / U1-Pro | 深度分析、万字报告、专业研究 |
 | **web_search** | 网页搜索 | Web API | 实时搜索、获取搜索结果列表 |
 | **web_reader** | 网页阅读 | Web API | 提取网页正文、阅读文章内容 |
-| **quick_search** | 深度搜索 | S2 | 快速搜索、简洁答案 |
 
 ## 快速开始
 
@@ -157,21 +156,6 @@ pip install mcp httpx
 用 web_reader 读取 https://docs.anthropic.com/claude/docs
 
 读取网页 https://example.com，只提取与 "API" 相关的内容
-```
-
-### 5. quick_search - 快速搜索
-
-使用较低深度快速获取简洁答案。
-
-**参数：**
-| 参数 | 类型 | 说明 |
-|------|------|------|
-| query | string | 搜索问题 |
-| sites | string | 可选，限定网站 |
-
-**示例：**
-```
-快速搜索 Python 3.12 新特性
 ```
 
 ## 模型说明

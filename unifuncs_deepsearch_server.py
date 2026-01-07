@@ -650,59 +650,6 @@ async def web_reader(
 # ============================================================
 
 @mcp.tool()
-async def quick_search(query: str, sites: Optional[str] = None) -> str:
-    """快速搜索，获取简洁快速的答案。
-
-    使用深度搜索 API 的快速模式（max_depth=10），牺牲一定深度换取更快的响应速度。
-    返回简洁的答案，适合简单问题和时效性查询。
-
-    适用场景：
-    - 简单的事实性问题（如"Python 最新版本是多少"）
-    - 需要快速获取答案的场景
-    - 时效性查询（如"今天的天气"）
-    - 不需要深入分析的问题
-
-    与 deep_search 的区别：
-    - quick_search：max_depth=10，更快但可能不够全面
-    - deep_search：max_depth=25（默认），更全面但稍慢
-
-    内部参数（固定值）：
-    - model: s2（第二代深度搜索）
-    - max_depth: 10（较浅的搜索深度）
-    - reference_style: link（Markdown 链接格式）
-    - introduction: 要求简洁准确回答
-
-    Args:
-        query: 搜索问题（必填）。建议使用简短明确的问题。
-            例如："Claude API 的价格"、"React 18 新特性"
-        sites: 限定搜索网站（可选）。多个网站用逗号分隔。
-            例如："github.com,stackoverflow.com"
-            设置后只搜索指定网站的内容
-
-    Returns:
-        简洁的搜索结果，包含：
-        - 直接回答问题的内容
-        - 引用来源链接
-    """
-    if not query or not query.strip():
-        return "错误: 搜索问题不能为空"
-
-    request_body = {
-        "model": "s2",
-        "messages": [{"role": "user", "content": query.strip()}],
-        "stream": False,
-        "max_depth": 10,
-        "reference_style": "link",
-        "introduction": "请简洁准确地回答问题，重点突出关键信息。"
-    }
-
-    if sites:
-        request_body["domain_scope"] = sites.strip()
-
-    return await make_request(API_ENDPOINTS["deepsearch"], request_body)
-
-
-@mcp.tool()
 async def check_config() -> str:
     """检查当前 MCP 服务器的配置状态。
 
@@ -755,7 +702,6 @@ API 端点:
 │ deep_research   │ u2/u1/u1-pro │ 深度研究，专业分析万字报告      │
 │ web_search      │ Web API      │ 网页搜索，获取搜索结果列表      │
 │ web_reader      │ Web API      │ 网页阅读，提取网页正文内容      │
-│ quick_search    │ s2           │ 快速搜索，简洁答案              │
 │ check_config    │ -            │ 配置检查                        │
 └─────────────────┴──────────────┴─────────────────────────────────┘
 
