@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "unifuncs": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["unifuncs_deepsearch_server.py"],
+      "env": {
+        "UNIFUNCS_API_KEY": "sk-xxxxxxxxxxxxxxxxxxxxxxxx",
+        "UNIFUNCS_MODEL": "s2",
+        "UNIFUNCS_MAX_DEPTH": "25",
+        "UNIFUNCS_REFERENCE_STYLE": "link"
+      },
+      "description": "UniFuncs 深度搜索 API - 提供深度研究和搜索能力"
+    }
+  }
+}
