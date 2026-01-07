@@ -17,7 +17,6 @@
 ### 1. 安装依赖
 
 ```bash
-cd /mnt/d/All_Project/unifuncs内测/mcp
 pip install mcp httpx
 ```
 
@@ -35,7 +34,7 @@ pip install mcp httpx
     "unifuncs": {
       "type": "stdio",
       "command": "python3",
-      "args": ["/mnt/d/All_Project/unifuncs内测/mcp/unifuncs_deepsearch_server.py"],
+      "args": ["/path/to/unifuncs_deepsearch_server.py"],
       "env": {
         "UNIFUNCS_API_KEY": "sk-你的API Key"
       }
